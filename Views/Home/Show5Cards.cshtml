@@ -1,0 +1,25 @@
+﻿@model DeckModel
+<h1>Draw 5 cards </h1>
+
+
+@{
+    foreach (Card c in Model.cards)
+    {
+        <img src="@c.image">
+    }
+    <form Asp-method ="post" asp-action="show5Cards">
+        <form Asp-method="post" asp-action="NewDeck">
+            <h1>New Draw </h1>
+            <button type="submit">Click here</button>
+        </form>
+    </form>
+}
+@{
+    if (Model.remaining == 0)
+    {
+        <form Asp-method="post" asp-action="NewDeck">
+        <h1>Reset Deck</h1>
+            <button type="submit">Click here</button>
+        </form>
+    }
+}
